@@ -11,25 +11,15 @@ module LatestStockPrice
       @api_key = api_key
     end
 
-    # Method to get price of a single stock
-    # def price(symbol)
-    #   endpoint = "/price"
-    #   params = { Indices: symbol }
+    def equities(isin, only_index = false, indicies = "")
+      endpoint = "/equities"
+      params = { ISIN: isin, OnlyIndex: only_index, Indicies: indicies }
 
-    #   response = get_request(endpoint, params)
-    #   parse_response(response)
-    # end
+      response = get_request(endpoint, params)
+      parse_response(response)
+      parse
+    end
 
-    # Method to get prices of multiple stocks
-    # def prices(symbols)
-    #   endpoint = "/prices"
-    #   params = { Indices: symbols.join(",") }
-
-    #   response = get_request(endpoint, params)
-    #   parse_response(response)
-    # end
-
-    # Method to get price of all stocks
     def price_all
       endpoint = "/any"
 
