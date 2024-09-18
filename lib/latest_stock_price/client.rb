@@ -17,7 +17,6 @@ module LatestStockPrice
 
       response = get_request(endpoint, params)
       parse_response(response)
-      parse
     end
 
     def price_all
