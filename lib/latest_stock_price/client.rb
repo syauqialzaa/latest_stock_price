@@ -11,15 +11,7 @@ module LatestStockPrice
       @api_key = api_key
     end
 
-    def equities(isin, only_index = false, indicies = "")
-      endpoint = "/equities"
-      params = { ISIN: isin, OnlyIndex: only_index, Indicies: indicies }
-
-      response = get_request(endpoint, params)
-      parse_response(response)
-    end
-
-    def pricess
+    def price_all
       endpoint = "/any"
 
       response = get_request(endpoint)
@@ -27,7 +19,6 @@ module LatestStockPrice
     end
 
     private
-
     def get_request(endpoint, params = {})
       url = URI(BASE_URL + endpoint)
       url.query = URI.encode_www_form(params) unless params.empty?
