@@ -19,7 +19,7 @@ module LatestStockPrice
       parse_response(response)
     end
 
-    def price_all
+    def pricess
       endpoint = "/any"
 
       response = get_request(endpoint)
